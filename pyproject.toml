@@ -1,0 +1,87 @@
+[build-system]
+requires = ["wheel", "setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nautobot-device-resources"
+description = "Nautobot Device Resources plugin"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+keywords = ["nautobot", "nautobot-plugin"]
+authors = [
+  {name = "Jakub Krysl", email = "jakub.krysl@gmail.com"},
+]
+maintainers = [
+  {name = "Jakub Krysl", email = "jakub.krysl@gmail.com"},
+]
+classifiers = [
+  "Programming Language :: Python"
+]
+
+dynamic = ["version"]
+
+dependencies = [
+  "nautobot >=1.5.0, <=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "coverage[toml]",
+  "factory-boy",
+  "mypy",
+  "pre-commit",
+  "pre-commit-hooks",
+  "pylint",
+  "pylint-django",
+  "pytest",
+  "pytest-cov",
+  "pytest-mock",
+  "pytest-order",
+  "types-PyYAML",
+]
+
+[project.urls]
+homepage = "https://github.com/Thetacz/nautobot-plugin-device-resources"
+repository = "https://github.com/Thetacz/nautobot-plugin-device-resources.git"
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION"}
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+force_grid_wrap = 0
+multi_line_output = 3
+profile = "black"
+use_parentheses = true
+force_single_line = true
+
+[tool.mypy]
+files = ["**/*.py"]
+ignore_missing_imports = true
+strict_optional = false
+warn_redundant_casts = true
+warn_unused_ignores = false
+
+[tool.pylint.master]
+good-names = "logger,e,i,j,n,m,f,_,__,pd,df"
+# TODO: make the plugin work
+#load-plugins = [
+#    "pylint_django",
+#]
+
+[tool.pylint.MESSAGE_CONTROL]
+disable = [
+  "format",
+  "miscellaneous",
+  "empty-docstring",
+  "missing-class-docstring",
+  "missing-function-docstring",
+  "missing-module-docstring",
+  "no-member",  # TODO: Remove when pylint-django is loaded
+  "too-many-lines",
+]
+enable = "useless-suppression"

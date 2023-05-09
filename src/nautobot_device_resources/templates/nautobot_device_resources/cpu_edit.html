@@ -1,0 +1,15 @@
+{% extends 'generic/object_edit.html' %}
+{% load form_helpers %}
+
+{% block form %}
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong>CPU</strong></div>
+        <div class="panel-body">
+            {% render_field form.name %}
+            {% render_field form.slug %}
+            {% render_field form.manufacturer %}
+            {% render_field form.cores %}
+            {% render_field form.threads_per_core %}
+        </div>
+    </div>
+{% endblock %}

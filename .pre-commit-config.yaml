@@ -1,0 +1,43 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        language: system
+        entry: black
+        types: [python]
+      - id: isort
+        name: isort
+        language: system
+        entry: isort
+        types: [python]
+      - id: json
+        name: json
+        language: system
+        entry: python -c "from pre_commit_hooks.check_json import main; raise SystemExit(main())" --
+        types: [json]
+      - id: mypy
+        name: mypy
+        language: system
+        entry: mypy
+        types: [python]
+      - id: pylint
+        name: pylint
+        language: system
+        entry: pylint
+        types: [python]
+      - id: toml
+        name: toml
+        language: system
+        entry: python -c "from pre_commit_hooks.check_toml import main; raise SystemExit(main())" --
+        types: [toml]
+      - id: xml
+        name: xml
+        language: system
+        entry: python -c "from pre_commit_hooks.check_xml import main; raise SystemExit(main())" --
+        types: [xml]
+      - id: yaml
+        name: yaml
+        language: system
+        entry: python -c "from pre_commit_hooks.check_yaml import main; raise SystemExit(main())" --
+        types: [yaml]

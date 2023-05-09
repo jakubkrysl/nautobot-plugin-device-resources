@@ -1,0 +1,16 @@
+{% extends 'dcim/device_edit.html' %}
+{% load helpers %}
+{% load form_helpers %}
+{% block form %}
+    {{ block.super }}
+    <div class="panel panel-default">
+    <div class="panel-heading"><strong>Resources</strong></div>
+        <div class="panel-body">
+            {% render_field form.cpu %}
+            {% render_field form.cpu_count %}
+            {% render_field form.gpu %}
+            {% render_field form.ram %}
+            {% render_field form.disks %}
+        </div>
+    </div>
+{% endblock %}
